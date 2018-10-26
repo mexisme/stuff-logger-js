@@ -1,0 +1,34 @@
+* TODO Allow sending additional Bunyan options through
+* Express.js Middleware
+** TODO Capture Express.js logging in middleware
+*** TODO Create a function to wrap connecting Morgan and Bunyan
+** TODO Capture Express.js "x-stuff-debug: on" headers to dynamically enable debug mode
+* TODO Forward logs via an internal API from the Browser to the Express.js server (a la Angular2's log forwarder)
+* TODO Support capturing errors to Sentry.io
+** TODO Inject Sentry config for error-capturing, incl. capturing released version
+** TODO Capture browser errors to Sentry
+* TODO Send logs directly to ELK
+* DONE Remove colourisation from Debug messages
+  :LOGBOOK:
+  - State "DONE"       from "TODO"       [2018-02-22 Thu 15:23]
+  :END:
+   - Can we even do this, without some deeper messing around?
+* DONE Remove dep on NPM debug, use bunyan
+  :LOGBOOK:
+  - State "DONE"       from "TODO"       [2018-02-22 Thu 15:23]
+  :END:
+* DONE Use Bunyan streams to decide whether to send log-messages out
+  :LOGBOOK:
+  - State "DONE"       from "TODO"       [2018-02-22 Thu 15:23]
+  :END:
+* DONE Some extra code, to figure out whether running in a browser or Node
+  :LOGBOOK:
+  - State "DONE"       from "TODO"       [2018-03-15 Thu 08:18]
+  :END:
+  - So we can provide different stream functionality, depending
+* DONE Friendly-format the output using `bunyan-format` (incl. colour)
+  :LOGBOOK:
+  - State "DONE"       from "TODO"       [2018-03-15 Thu 08:23]
+  :END:
+* Docs
+** TODO Describe enabling / disabling filtering

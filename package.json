@@ -1,0 +1,72 @@
+{
+  "name": "stuff-logger",
+  "version": "0.5.7",
+  "description": "Wrapper + Configurator for Logging at Stuff",
+  "main": "dist/stuff-logger.js",
+  "browser": "dist/stuff-logger.web.js",
+  "module": "dist/stuff-logger.es.js",
+  "files": [
+    "dist/**/*.js"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/",
+    "init": "eslint --init",
+    "build": "run-s build:prod",
+    "build:prod": "rollup -c --environment BUILD:production",
+    "build:test": "rollup -c --environment BUILD:test",
+    "dev": "rollup -c -w --environment BUILD:development",
+    "test": "run-p test:mocha test:fixme test:lint",
+    "test:fixme": "node ./node_modules/.bin/fixme -p ./src -s line",
+    "test:lint": "eslint 'src/**/*.js' 'src/*.js '*.js",
+    "test:mocha": "run-s build:test && NODE_ENV=test BABEL_DISABLE_CACHE=1 mocha --opts mocha.opts",
+    "test:mocha:integration": "run-s build:test && NODE_ENV=test BABEL_DISABLE_CACHE=1 mocha --opts mocha.integration.opts",
+    "prepare": "run-s clean test clean build",
+    "version": "git stash && git flow release start ${npm_package_version} && git stash pop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/StuffNZ/stuff-logger-js.git"
+  },
+
+  "keywords": [
+    "stuff",
+    "logger",
+    "debug",
+    "bunyan",
+    "morgan"
+  ],
+  "author": "mexisme",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/StuffNZ//stuff-logger-js#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "once": "^1.4.0",
+    "raven": "^2.4.2",
+    "raven-js": "^3.23.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "fixme": "^0.4.5",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^5.0.4",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.58.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-multi-entry": "^2.0.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^3.2.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^3.0.0",
+    "sinon": "^4.5.0"
+  }
+}

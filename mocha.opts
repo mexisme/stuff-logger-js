@@ -1,0 +1,4 @@
+--recursive
+--require ignore-styles
+--exit
+dist/**/*.test.js
